@@ -1,0 +1,35 @@
+
+[% FOREACH i = compos %]
+<br>
+<table border="2px" cellspacing="4px" style="position:relative;left:22px;padding:5px;margin:2px" cellpadding="2px" >
+     <tr>
+         <td colspan="2">
+            Component - [% i.count %]
+         </td>
+     </tr> 
+     <tr>
+            <td>Type </td>
+            <td> [% i.type %] </td>
+     </tr>
+     <tr>
+            <td>Host Name </td>
+            <td> [% i.host_name %] </td>
+     </tr>
+     <tr>
+            <td>IP Adrs </td>
+            <td> [% i.ip %] </td>
+     </tr>
+     <tr>
+            <td>User</td>
+            <td> [% i.user %] </td>
+     </tr>
+     <tr>
+            <td>Password </td>
+            <td> ********** </td>
+     </tr> 
+    <tr>
+            <td>Comments </td>
+            <td> [% i.Comments %] </td>
+     </tr>
+ </table>
+[% END %]

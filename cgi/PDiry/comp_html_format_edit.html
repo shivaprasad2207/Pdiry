@@ -1,0 +1,60 @@
+
+
+[% FOREACH i = compos %]
+<br>
+<table border="2px" cellspacing="4px" style="position:relative;left:22px;padding:5px;margin:2px" cellpadding="2px" >
+     <tr>
+         <td colspan="2" align="center">
+            Component - [% i.count %]
+         </td>
+         <td>
+            Actions
+         </td>
+     </tr> 
+     <tr>
+            <td>Type </td>
+            <td> [% i.type %] </td>
+            <td><a href="#" onclick="javascript:modify_comp('type','[% i.comp_id %]','[% proj_id %]','[% insta_id %]');return false;">Modify</a></td>
+            
+            
+     </tr>
+     <tr>
+            <td>Host Name </td>
+            <td> [% i.host_name %] </td>
+            <td><a href="#" onclick="javascript:modify_comp('host_name','[% i.comp_id %]','[% proj_id %]','[% insta_id %]');return false;">Modify</a></td>
+           
+     </tr>
+     <tr>
+            <td>IP Adrs </td>
+            <td> [% i.ip %] </td>
+            <td><a href="#" onclick="javascript:modify_comp('ip','[% i.comp_id %]','[% proj_id %]','[% insta_id %]');return false;">Modify</a></td>
+            
+     </tr>
+     <tr>
+            <td>User</td>
+            <td> [% i.user %] </td>
+            <td><a href="#" onclick="javascript:modify_comp('user','[% i.comp_id %]','[% proj_id %]','[% insta_id %]');return false;">Modify</a></td>
+            
+     </tr>
+     <tr>
+            <td>Password </td>
+            <td><a href="#" onclick="javascript:show_password('[% i.comp_id %]');return false;"> ***** </a> </td>
+            <td><a href="#" onclick="javascript:modify_comp('password','[% i.comp_id %]','[% proj_id %]','[% insta_id %]');return false;">Modify</a></td>
+            
+     </tr> 
+    <tr>
+            <td>Comments </td>
+            <td> [% i.Comments %] </td>
+            <td><a href="#" onclick="javascript:modify_comp('Comments','[% i.comp_id %]','[% proj_id %]','[% insta_id %]');return false;">Modify</a></td>
+            
+     </tr>
+     <tr>
+          <td colspan="3" align="center">
+               
+                    <a href="#" onclick="javascript:delete_comp('[% i.comp_id %]','[% proj_id %]','[% insta_id %]');return false;">Delete</a>
+                    <div id="load"> </div>
+          </td>
+     </tr>
+      
+ </table>
+[% END %]

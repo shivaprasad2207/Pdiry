@@ -1,0 +1,100 @@
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:20%;
+            left:0%;
+            height:700px;
+            background-color:orange;
+            border-style:solid;
+            border-color:#F9F3D8;
+            float:left;
+           " 
+>    
+<br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=SHOW_ADD_PROJ_FORM"><b>ADD New PROJECT</b></a><br><br>
+                   
+<b> &nbsp&nbsp&nbsp&nbsp <font color="blue"> Select Project </font> </b>
+                <form>&nbsp&nbsp&nbsp&nbsp
+                    <select id="main_proj" onchange="javascript:clear_disp_area();return false;" >
+                     <option>  </option>
+                      [% FOREACH i = proj %]
+                        
+                        <option value="[% i.project_name %]___O___[% i.project_id %]" name="[% i.project_name %]___O___[% i.project_id %]">
+                            
+                            [% i.project_name %]
+                        
+                        </option>
+                      [% END %]
+                    </select>
+                </form>
+                
+                
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_page();return false;"><b>Go To Above Selected PROJECT</b></a><br><br>
+                   
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_modify_form();return false;"><b>Modify Above Selected PROJECT</b></a><br><br>
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_delete_form();return false;"><b>Delete Above Selected PROJECT</b></a><br><br>
+
+
+
+</div>
+
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:81%;
+            left:20%;
+            height:700px;
+            background-color:white;
+            border-style: double;
+            border-color:orange;
+            float:right;
+           " 
+>    
+
+
+
+<br><div id="disp">
+    &nbsp&nbsp<b><u> Project Name </u></b> : <b> <font size="5px" color="blue"> [% project_name %] </font> </b>
+    &nbsp&nbsp<b><u> Project Description </u></b> : <b> <font size="3px" color="blue"> [% project_desc %] </font> </b>
+    <br><br>
+    
+    <form id="new_proj_insta">
+     &nbsp&nbsp<b> Add New Environment for [% project_name %] </b>
+     &nbsp&nbsp<input id="insta_name" type="text" name="new_insta" value="">
+     <input type="hidden" name="proj_id" value="[% project_id %]">
+     &nbsp&nbsp <input type="button" name="Add" value="Add" onclick="javascript:add_insta_of_project ( '[% project_name %]' ,'[% project_id %]' ); return false;">
+    </form>
+       
+        
+    
+    
+    
+</div>
+</div>

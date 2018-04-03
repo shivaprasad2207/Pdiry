@@ -1,0 +1,113 @@
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:20%;
+            left:0%;
+            height:700px;
+            background-color:orange;
+            border-style:solid;
+            border-color:#F9F3D8;
+            float:left;
+           " 
+>    
+<br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=SHOW_USER_LIST"><b>User List</b></a><br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=SHOW_ADD_USER"><b>ADD New USER</b></a><br><br>
+                                 
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=PROMOTE_USER"><b>PROMOTE USER TO ADMIN</b></a><br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=DE_PROMOTE_USER"><b>DE-PROMOTE USER</b></a><br><br>
+               
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=DEL_USER"><b>DELETE USER</b></a><br><br>
+                   
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=RESET_USER_PASSWD"><b>RESET USER PASSWD</b></a><br><br>
+</div>
+
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:81%;
+            left:20%;
+            height:700px;
+            background-color:white;
+            border-style: double;
+            border-color:orange;
+            float:right;
+           " 
+>
+         <div id="form_area">
+             <fieldset>
+             <br><br>
+             <label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b> Select User to Delete Account </b> </label>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                           <form id="select_usr_form" action="#">
+                                     <select id="select_usr">
+                                             <option>  </option>
+                                        [% FOREACH i = usr %]
+                                          <option value="[% i.email %]___[% i.uid %]" name="[% i.email %]___[% i.uid %]">
+                                                               [% i.email %]
+                                          </option>
+                                        [% END %]
+                                     </select>
+                                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                     <input type="button" onclick="javascript:select_delete_user();return false;" value="Select User ->">
+                                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                     <input type="text" id="promoted_user" name="promoted_user" value=""  readonly="readonly">
+                                     <input type="hidden" id="promoted_user_id" name="promoted_user_id" value="" >
+                                          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  
+                                    <div id="promote_button" style="visibility:hidden">
+                                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                             <input type="button" onclick="javascript:delete_user();return false;" value="Delete User">
+                                    </div>
+                  
+                           </form>
+                    <br>
+            
+
+         </div>
+           <br><br><br>
+           
+           <div id="msg"> </div>
+
+</div>

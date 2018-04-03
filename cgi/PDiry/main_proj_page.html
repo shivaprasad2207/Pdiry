@@ -1,0 +1,88 @@
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:20%;
+            left:0%;
+            height:700px;
+            background-color:orange;
+            border-style:solid;
+            border-color:#F9F3D8;
+            float:left;
+           " 
+>    
+<br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=SHOW_ADD_PROJ_FORM"><b>ADD New PROJECT</b></a><br><br>
+                   
+<b> &nbsp&nbsp&nbsp&nbsp <font color="blue"> Select Project </font> </b>
+                <form>&nbsp&nbsp&nbsp&nbsp
+                    <select id="main_proj" onchange="javascript:clear_disp_area();return false;" >
+                       <option> </option>
+                      [% FOREACH i = proj %]
+                        
+                        <option value="[% i.project_name %]___O___[% i.project_id %]" name="[% i.project_name %]___O___[% i.project_id %]">
+                            
+                            [% i.project_name %]
+                        
+                        </option>
+                      [% END %]
+                    </select>
+                </form>
+                
+                
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_page();return false;"><b>Go To Above Selected PROJECT</b></a><br><br>
+                   
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_modify_form();return false;"><b>Modify Above Selected PROJECT</b></a><br><br>
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_delete_form();return false;"><b>Delete Above Selected PROJECT</b></a><br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  " href="index.pl?AppParam=SET_PASSWORD" > Password </a> &nbsp&nbsp &nbsp&nbsp
+
+</div>
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:81%;
+            left:20%;
+            height:700px;
+            background-color:white;
+            border-style: double;
+            border-color:orange;
+            float:right;
+           " 
+>    
+
+
+
+<br><div id="disp"> </div>
+</div>

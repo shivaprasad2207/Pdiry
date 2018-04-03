@@ -1,0 +1,106 @@
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:20%;
+            left:0%;
+            height:700px;
+            background-color:orange;
+            border-style:solid;
+            border-color:#F9F3D8;
+            float:left;
+           " 
+>    
+<br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=SHOW_USER_LIST"><b>User List</b></a><br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=SHOW_ADD_USER"><b>ADD New USER</b></a><br><br>
+                                 
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=PROMOTE_USER"><b>PROMOTE USER TO ADMIN</b></a><br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=DE_PROMOTE_USER"><b>DE-PROMOTE USER</b></a><br><br>
+               
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=DEL_USER"><b>DELETE USER</b></a><br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=RESET_USER_PASSWD"><b>RESET USER PASSWD</b></a><br><br>
+</div>
+
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:81%;
+            left:20%;
+            height:700px;
+            background-color:white;
+            border-style: double;
+            border-color:orange;
+            float:right;
+           " 
+>
+         <div id="form_area" style="position: absolute; left:10%;">
+                  <br><br> <br>
+                  <table border="2px" cellspacing="2px" cellpadding="2px">
+                           <tr>
+                                    <td>
+                                             <font color="blue"> <b> User Name </b> </font>
+                                    </td>
+                                    <td>
+                                             <font color="blue"> <b> User Roles  </b></font>
+                                    </td>
+                           </tr>
+                           [% FOREACH i = usr %]
+                           <tr>
+                                        <td> [% i.email %] </td>
+                                        [% IF i.role == 0 %]
+                                             <td> Admin </td>
+                                        [% ELSE %]
+                                             <td> User </td>
+                                        [% END %]
+                           </tr>
+                           [% END %]         
+                  </table>
+         </div>
+      
+           <br><br><br>
+           
+          
+
+</div>

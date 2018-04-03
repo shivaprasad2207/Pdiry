@@ -1,0 +1,166 @@
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:20%;
+            left:0%;
+            height:700px;
+            background-color:orange;
+            border-style:solid;
+            border-color:#F9F3D8;
+            float:left;
+           " 
+>    
+<br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=SHOW_ADD_PROJ_FORM"><b>ADD New PROJECT</b></a><br><br>
+                   
+<b> &nbsp&nbsp&nbsp&nbsp <font color="blue"> Select Project </font> </b>
+                <form>&nbsp&nbsp&nbsp&nbsp
+                    <select id="main_proj" onchange="javascript:clear_disp_area();return false;" >
+                     <option>  </option>
+                      [% FOREACH i = proj %]
+                        
+                        <option value="[% i.project_name %]___O___[% i.project_id %]" name="[% i.project_name %]___O___[% i.project_id %]">
+                            
+                            [% i.project_name %]
+                        
+                        </option>
+                      [% END %]
+                    </select>
+                </form>
+                
+                
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_page();return false;"><b>Go To Above Selected PROJECT</b></a><br><br>
+                   
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_modify_form();return false;"><b>Modify Above Selected PROJECT</b></a><br><br>
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_delete_form();return false;"><b>Delete Above Selected PROJECT</b></a><br><br>
+
+
+
+</div>
+
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:81%;
+            left:20%;
+            height:700px;
+            background-color:white;
+            border-style: double;
+            border-color:orange;
+            float:right;
+           " 
+>    
+
+
+
+<br><div id="disp">
+    &nbsp&nbsp<b><u> Project Name </u></b> : <b> <font size="5px" color="blue"> [% project_name %] </font> </b>
+    &nbsp&nbsp<b><u> Project Description </u></b> : <b> <font size="3px" color="blue"> [% project_desc %] </font> </b>
+    <br><br>
+ <div id="insta_disp">
+    <table id="insta" cellspacing="5px" cellpadding="5px">
+        <tr>
+            <td>
+                    <a href="index.pl?AppParam=SHOW_ADD_NEW_INSTA_PROJ&proj_id=[% project_id %]">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+Add new Instance to <font size="3px" color="blue"><b> [% project_name %] </b></font>
+                    </a>
+            </td>
+        </tr>       
+       <tr>
+           <td>
+            <b> &nbsp&nbsp&nbsp&nbsp Select instance of Project </b>
+                <form>&nbsp&nbsp&nbsp&nbsp
+                    <select id="instance" onchange="javascript:option_handler();return false;">
+                        <option>  </option>
+                      [% FOREACH j = insta %]
+                        <option value="__PROJ_ID__[% project_id %]__INSTA_ID__[% j.insta_id %]__INSTA_NAME__[% j.insta_name %]" name="NAME__PROJ_ID__[% project_id %]__INSTA_ID__[% j.insta_id %]">
+                            
+                            [% j.insta_name %]
+                        
+                        </option>
+                      [% END %]
+                    </select>
+                </form>
+                <div id="insta_load"> </div>
+           </td>
+       </tr>
+       <tr>
+         <td>
+            <div id="insta_prop">
+             <a href="index.pl?AppParam=GOTO_INSTA_PROJ&proj_id=[% project_id %]&insta_id=[% insta_id %]">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ Got to [% insta_name %] Environment 
+                    </a>
+               
+               <a href="index.pl?AppParam=MODIFY_INSTA_PROJ&proj_id=[% project_id %]&insta_id=[% insta_id %]">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ Modify Environment [% insta_name %] Name 
+                    </a>
+               
+               <a href="index.pl?AppParam=DEL_INSTA_PROJ&proj_id=[% project_id %]&insta_id=[% insta_id %]">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ Delete Enviornment [% insta_name %] Name 
+                    </a><br>
+               <a href="index.pl?AppParam=ADD_INSTA_COMPO_FORM&proj_id=[% project_id %]&insta_id=[% insta_id %]">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp+ Add New Component in [% insta_name %] Name 
+                    </a>
+            </div>
+         </td>
+       </tr>
+       <tr>
+            <td>
+                <div id="comp_disp">
+                 <br>
+                 <div align="center" style="position:relative;left:15%;border:2px double;width:700px">
+             
+                    <b><font color="blue">
+                          Delete Request of Instance [% insta_name %] of Project [% project_name %]
+                        </font>
+                    </b><br><br>
+                <div align="center"   style="border:2px double;width:500px;overflow:scroll;height:300px">
+                  [% compos %]
+                </div>
+                <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="red" > <b> Deletion of instance [% insta_name %] will delete all above componets, continue ? </b> </font><br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="index.pl?AppParam=DEL_INSTA_NAME_CNFRM&proj_id=[% project_id %]&insta_id=[% insta_id %]">
+                                            <b> YES </b>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="index.pl?AppParam=INST_DISP&id=[% project_id %]&insta_id=[% insta_id %]">
+                                            <b> NO </b>
+                    </a>
+                 </div>
+            </div>
+            </td>
+              
+       </tr>
+    </table>
+ </div>      
+        
+    
+    
+    
+</div>
+</div>

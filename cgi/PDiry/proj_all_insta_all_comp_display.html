@@ -1,0 +1,98 @@
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:20%;
+            left:0%;
+            height:700px;
+            background-color:orange;
+            border-style:solid;
+            border-color:#F9F3D8;
+            float:left;
+           " 
+>    
+<br><br>
+
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="index.pl?AppParam=SHOW_ADD_PROJ_FORM"><b>ADD New PROJECT</b></a><br><br>
+                   
+<b> &nbsp&nbsp&nbsp&nbsp <font color="blue"> Select Project </font> </b>
+                <form>&nbsp&nbsp&nbsp&nbsp
+                    <select id="main_proj" onchange="javascript:clear_disp_area();return false;" >
+                     <option>  </option>
+                      [% FOREACH i = proj %]
+                        
+                        <option value="[% i.project_name %]___O___[% i.project_id %]" name="[% i.project_name %]___O___[% i.project_id %]">
+                            
+                            [% i.project_name %]
+                        
+                        </option>
+                      [% END %]
+                    </select>
+                </form>
+                
+                
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_page();return false;"><b>Go To Above Selected PROJECT</b></a><br><br>
+                   
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_modify_form();return false;"><b>Modify Above Selected PROJECT</b></a><br><br>
+&nbsp&nbsp&nbsp<a
+                  style="
+                       padding:9px;
+                       margin :3px;
+            
+                  "                     
+                   href="#" onclick="javascript:show_proj_delete_form();return false;"><b>Delete Above Selected PROJECT</b></a><br><br>
+
+
+
+</div>
+
+
+<div  style="
+            top:120px;
+            position: absolute;      
+            width:81%;
+            left:20%;
+            height:700px;
+            background-color:white;
+            border-style: double;
+            border-color:orange;
+            float:right;
+           " 
+>    
+<b> Project Name: <font color="blue"> [% proj_name %] </font> </b> <br>
+ 
+<div style="overflow:scroll; height:600px;">
+
+[% comp %]  
+ 
+ </div>
+
+[% IF flag == 1 %]
+     <b><font color="red"> No Project selected </font> </b>
+[% ELSE %]
+<font color="red"> <b> Deleting [% proj_name %] will delete all above details. Do you want to Continue ?.. </b></font>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+ <a href="index.pl?AppParam=PROJ_DEL_CFRM&proj_name=[% proj_name %]&proj_id=[% proj_id %]"><b> YES </b></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+ <a href="index.pl"><b> NO </b> </a> 
+[% END %]
+ 
+ 
+</div>
+</div>

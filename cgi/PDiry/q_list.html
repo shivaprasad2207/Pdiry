@@ -1,0 +1,31 @@
+
+<br>
+[% topic %]
+<br><br>
+<table>
+
+[% TYPE = 'primary' %]
+
+[% FLAG = 0 %]
+
+[% FOREACH i = info %]
+  
+  <tr> 
+    <td>
+      
+           <a href="index.pl?AppParam=ShowThread&QID=[% i.QID %]"> [% i.Q_TXT %] </a>
+          [% IF FLAG == 0 %]
+              [% TYPE = 'success'  %]
+              [% FLAG = 1 %]
+          [% ELSE %]
+              [% TYPE = 'primary' %]
+              [% FLAG = 0 %]
+          [% END %]
+           
+      <br> 
+    </td>
+   </tr>
+  
+[% END %]
+  
+</table>  
